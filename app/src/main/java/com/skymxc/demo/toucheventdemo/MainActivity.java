@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 float dx= x-downX;
                 float dy = y-downY;
                 //防止是按下也判断
-                if (Math.abs(dx)>8&&Math.abs(dy)>8) {
+                Log.e("Tag","========X轴距离差："+dx);
+                Log.e("Tag","========Y轴距离差："+dy);
+                if (Math.abs(dx)>30||Math.abs(dy)>30) {
                     //通过距离差判断方向
                     int orientation = getOrientation(dx, dy);
                     switch (orientation) {
@@ -75,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
      * @return 滑动的方向
      */
     private int getOrientation(float dx, float dy) {
-        Log.e("Tag","========X轴距离差："+dx);
-        Log.e("Tag","========Y轴距离差："+dy);
+
         if (Math.abs(dx)>Math.abs(dy)){
             //X轴移动
             return dx>0?'r':'l';
